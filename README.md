@@ -11,7 +11,7 @@ While keeping in mind the struggles of small business owners, where companies of
 - [📌 Client Experience](#-client-experience)  
 - [🛠 Team Workflow](#-team-workflow)  
 - [🚀 Tech Stack](#-tech-stack)
-- [🏗️ Architecture ](#architecture)  
+- [🏗️ Architecture](#architecture)
 - [🔧Setup](#-installation--setup)  
 
 
