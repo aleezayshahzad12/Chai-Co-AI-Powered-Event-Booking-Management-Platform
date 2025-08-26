@@ -1,4 +1,4 @@
-# Chai-Co-AI-Powered-Event-Booking-Management-Platform
+## Chai-Co-AI-Powered-Event-Booking-Management-Platform
 This project is a full-stack event inquiry and booking system designed to streamline client communication and internal team workflows. It integrates AI-generated email drafting with a human-in-the-loop review process, ensuring efficiency without losing personalization.
 
 ## 🌵How it solves the Pain?
@@ -6,12 +6,13 @@ This project is a full-stack event inquiry and booking system designed to stream
 While keeping in mind the struggles of small business owners, where companies often lack optimized systems and end up juggling dozens of client emails, scheduling conflicts, and scattered approvals across platforms like social media, messaging apps, and third-party tools, Chai & Co was built with the intention of eliminating this friction. By combining AI-assisted communication, real-time scheduling, and seamless team collaboration into one system, Chai & Co delivers faster decisions, reduces frustrating back-and-forth communication, minimizes errors, and ensures a luxury-level client experience.
 
 ## 📑 Table of Contents
-- [Key Features](#-key-features)  
-- [Project Overview](#-project-overview)  
-- [Client Experience](#-client-experience)  
-- [Team Workflow](#-team-workflow)  
-- [Tech Stack](#-tech-stack)  
-- [Setup](#-installation--setup)  
+- [📋 Key Features](#-key-features)  
+- [🚀 Why This Project Stands Out](#-project-overview)  
+- [📌 Client Experience](#-client-experience)  
+- [🛠 Team Workflow](#-team-workflow)  
+- [🚀 Tech Stack](#-tech-stack)
+- [🚀 🏗️ Architecture ](#-architecture)  
+- [🔧Setup](#-installation--setup)  
 
 
 ## 📋 Key Features
@@ -68,7 +69,7 @@ While keeping in mind the struggles of small business owners, where companies of
 - **Axios:** HTTP client
 - **Deployment:** Railway and Netlify
 
-## 🚀 Why This Project Stands Out##
+## 🚀 Why This Project Stands Out
 - deployed for a real event company based in New York City. 
 - Human-in-the-loop AI workflows (balancing automation with personalization).
 - End-to-end lifecycle management (inquiry → decision → booking → consultation).
