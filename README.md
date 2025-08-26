@@ -1,7 +1,25 @@
 # Chai-Co-AI-Powered-Event-Booking-Management-Platform
 This project is a full-stack event inquiry and booking system designed to streamline client communication and internal team workflows. It integrates AI-generated email drafting with a human-in-the-loop review process, ensuring efficiency without losing personalization.
 
-🌟 Project Overview
+## 📋 Key Features
+
+💡 AI Email Generation: Context-aware email drafting for different scenarios
+
+💡 Access Code System: Secure, one-time codes for appointment booking
+
+💡 Real-time Availability: Prevents double-booking and manages time slots
+
+💡 Email Review System: Human oversight before sending communications
+
+💡 Automated Zoom Integration: Creates meeting links for confirmed appointments
+
+💡 Employee Authentication: Secure internal dashboard access
+
+💡 Status Tracking: Full lifecycle management from inquiry to booking
+
+
+
+## 🌟 Project Overview
 
 Unlike generic booking platforms, Chai & Co was built to streamline the booking process for both clients and the team, while preserving a personalized, high-end experience.
 
@@ -55,4 +73,63 @@ Unlike generic booking platforms, Chai & Co was built to streamline the booking 
   ## 🛠 Development Tools
 - dotenv – Environment variable management  
 - CORS – Cross-origin resource sharing  
-- Axios – HTTP client 
+- Axios – HTTP client
+
+
+##🏗️ Architecture
+The platform follows a RESTful API architecture with:
+      . React Frontend: Responsive client-facing interface and admin dashboard
+      . Express Backend: Robust API handling business logic and integrations
+      . MongoDB Database: Scalable data storage for inquiries, users, and bookings
+      . Third-party Integrations: Seamless connections with email and video services
+
+## 🔧 Installation & Setup
+# Clone the repository
+git clone https://github.com/your-username/Chai-Co-AI-Powered-Event-Booking-Management-Platform.git
+cd Chai-Co-AI-Powered-Event-Booking-Management-Platform
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Configure your API keys and database URI
+
+# Start development servers
+npm run dev  # Frontend (Vite)
+npm run server  # Backend (Node.js)
+
+##📁 Environment Variables
+Create a .env file with:
+
+env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+OPENAI_API_KEY=your_openai_api_key
+ZOOM_CLIENT_ID=your_zoom_client_id
+ZOOM_CLIENT_SECRET=your_zoom_client_secret
+ZOOM_ACCOUNT_ID=your_zoom_account_id
+SENDGRID_API_KEY=your_sendgrid_api_key
+TEAM_EMAILS=team@example.com
+PORT=3000
+
+##📄 License
+This project is proprietary and maintained by Chai & Co.
+
+##🏆 Acknowledgments
+OpenAI for powerful language model capabilities
+
+Zoom for seamless video meeting integration
+
+SendGrid for reliable email delivery services
+
+MongoDB for robust data storage solutions
+
+
+
+
+
+
+
+
+
