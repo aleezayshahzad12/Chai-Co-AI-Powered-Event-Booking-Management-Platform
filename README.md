@@ -29,17 +29,17 @@ Unlike generic booking platforms, Chai & Co is a full-stack system that streamli
 
 ## 🛠 Team Workflow
 
--⚡ Manage all inquiries through a central dashboard instead of scattered emails/DMs.
+-**⚡ Manage all inquiries through a central dashboard instead of scattered emails/DMs.
 
--⚡ Inquiry forms sync automatically, allowing quick accept/reject decisions.
+-**⚡ Inquiry forms sync automatically, allowing quick accept/reject decisions.
 
--⚡ One-click triggers AI-generated draft emails (acceptance or rejection), including access codes when relevant.
+-**⚡ One-click triggers AI-generated draft emails (acceptance or rejection), including access codes when relevant.
 
--⚡ Drafts are saved and editable in the dashboard until approved and sent.
+-**⚡ Drafts are saved and editable in the dashboard until approved and sent.
 
--⚡ Client statuses (Pending, Accepted, Rejected, Booked) update live, keeping the team aligned.
+-**⚡ Client statuses (Pending, Accepted, Rejected, Booked) update live, keeping the team aligned.
 
--⚡ Booked clients’ Zoom links and appointment times are automatically logged in the dashboard.
+-**⚡ Booked clients’ Zoom links and appointment times are automatically logged in the dashboard.
 
 ➡️ This system reduces manual back-and-forth by up to 80% while still delivering a luxury, client-first experience.
 
