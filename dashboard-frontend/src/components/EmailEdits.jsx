@@ -7,7 +7,7 @@ const EmailEdits = ({ userForm, draftIndex = 0, makesEdits }) => {
     const [isSaving, setIsSaving] = useState(false);
     const [saveMessage, setSaveMessage] = useState('');
     const [hasDraft, setHasDraft] = useState(false);
-//the class ensure the logic of ai emails being parked in the dash paortal and the team ebing able to make any changes to parked emails. 
+    //the class ensure the logic of ai emails being parked in the dash paortal and the team ebing able to make any changes to parked emails. 
     useEffect(() => {
         if (userForm.emailDrafts && userForm.emailDrafts[draftIndex]) {
             const draft = userForm.emailDrafts[draftIndex];
@@ -33,25 +33,25 @@ const EmailEdits = ({ userForm, draftIndex = 0, makesEdits }) => {
         //the team must be able to make edits tot the accpetance and rejection emails drafted by ai as these emails are the most important ones. 
         //hence once the changes are made to the ai emails, the draft must be saved. the team will be alreted that the draft needs there attention 
         //as the review flage will be on. 
-        
+
         try {
-            const response = await fetch(`http://localhost:3000/api/forms/${userForm._id}/update-draft`, {
+            const response = await fetch(`https://chainco-backend.onrender.com/api/forms/${userForm._id}/update-draft`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     draftIndex,
                     updates: {
                         subject: emailSubject,
                         content: emailInfo,
-                        requiresReview: true 
+                        requiresReview: true
                     }
                 })
             });
-            
+
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            
+
             await response.json();
             makesEdits(); //allows the team to make any edits 
             setSaveMessage('Draft saved successfully!');
@@ -62,7 +62,7 @@ const EmailEdits = ({ userForm, draftIndex = 0, makesEdits }) => {
             setIsSaving(false);
         }
     };
-//ai hasnt writtent any emails yet and have not be parked for the required review. 
+    //ai hasnt writtent any emails yet and have not be parked for the required review. 
     if (!hasDraft) {
         return (
             <div className="p-4 bg-yellow-50 text-yellow-800 rounded-lg">
@@ -77,7 +77,7 @@ const EmailEdits = ({ userForm, draftIndex = 0, makesEdits }) => {
     } else {
         savingButton = 'Save Draft';
     }
-    
+
     return (
         <div className="space-y-4">
             <div>
