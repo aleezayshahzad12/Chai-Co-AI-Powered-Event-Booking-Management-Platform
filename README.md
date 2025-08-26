@@ -24,30 +24,28 @@ This project is a full-stack event inquiry and booking system designed to stream
 
 Unlike generic booking platforms, Chai & Co is a full-stack system that streamline the booking process for both clients and the team, while preserving a personalized, high-end experience.
 
-## 👥 Client Experience
+## 📌 Client Experience
 
-- **Browse past work and submit a short inquiry form** (name, contact, guest size, event details).
+- **Event Inquiry Form** – Clients submit booking requests via the website.
 
-- **All further communication happens via email** for simplicity.
+- **Instant Confirmation** - AI sends a personalized confirmation email.
 
-- **Accepted clients receive a custom access code** to unlock a scheduling modal, booking directly from shared availability.
+- **Unique Access Code** – Every booking is paired with a secure event code
 
 - **Booking confirmation emails include a unique Zoom link** for their consultation.
 
-- **Clients feel valued and exclusive** knowing their ideas are prioritized over generic event templates.
+- **Automated Zoom Links** – Each consultation generates its own Zoom link.
 
 ## 🛠 Team Workflow
 
-- **Manage all inquiries through a central dashboard** instead of scattered emails/DMs.
+- **Central Dashboard** - Team views incoming event requests.
 
 - **Inquiry forms sync automatically** allowing quick accept/reject decisions.
-
-- **One-click triggers AI-generated draft emails** (acceptance or rejection), including access codes when relevant.
-
-- **Drafts are saved and editable** in the dashboard until approved and sent.
-
+- **One-click triggers AI-generated draft emails** – Each request can be:
+    -  **Drafts are saved and editable** in the dashboard until approved and sent.
+    - **✅ Accepted** - AI drafts an email with an access code → team edits → sends.
+    - **❌ Rejected** - AI drafts a polite decline email → team edits → sends.
 - **Client statuses (Pending → Accepted → Rejected → Booked) update live** keeping the team aligned.
-
 - **Booked clients’ Zoom links and appointment times are automatically logged** in the dashboard.
 
 ➡️ This system reduces manual back-and-forth by up to 80% while still delivering a luxury, client-first experience.
