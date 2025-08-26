@@ -3,57 +3,43 @@ This project is a full-stack event inquiry and booking system designed to stream
 
 ## 📋 Key Features
 
-💡 AI Email Generation: Context-aware email drafting for different scenarios
-
-💡 Access Code System: Secure, one-time codes for appointment booking
-
-💡 Real-time Availability: Prevents double-booking and manages time slots
-
-💡 Email Review System: Human oversight before sending communications
-
-💡 Automated Zoom Integration: Creates meeting links for confirmed appointments
-
-💡 Employee Authentication: Secure internal dashboard access
-
-💡 Status Tracking: Full lifecycle management from inquiry to booking
-
+✨ AI-Powered Email Drafting – Generates context-aware acceptance/rejection emails, parked in the dashboard for review and personalization.
+✨ Custom Access Codes – Secure, one-time codes unlock the scheduling modal for consultations.
+✨ Real-Time Scheduling – Clients book based on shared availability, preventing double-booking.
+✨ Automated Zoom Integration – Confirmation emails include unique Zoom links for consultations.
+✨ Client Lifecycle Tracking – Dashboard tracks every stage: Pending → Accepted/Rejected → Booked.
+✨ Employee Authentication – Secure internal access for team members only.
 
 
 ## 🌟 Project Overview
 
-Unlike generic booking platforms, Chai & Co was built to streamline the booking process for both clients and the team, while preserving a personalized, high-end experience.
+Unlike generic booking platforms, Chai & Co is a full-stack system that streamline the booking process for both clients and the team, while preserving a personalized, high-end experience.
 
 ## 👥 Client Experience
 
-1. Clients browse the company’s past work and submit a short inquiry form (name, contact, guest size, event details).
+-✨ Browse past work and submit a short inquiry form (name, contact, guest size, event details).
 
-2. All communication shifts to email for a seamless experience.
+-✨ All further communication happens via email for simplicity.
 
-3. Accepted clients receive a custom access code that unlocks a scheduling modal — allowing them to directly book consultations based on both client and team availability.
+-✨ Accepted clients receive a custom access code to unlock a scheduling modal, booking directly from shared availability.
 
-4. Booking confirmation emails include a unique Zoom link, so clients simply click to join on the day of their consultation.
+-✨ Booking confirmation emails include a unique Zoom link for their consultation.
 
-5. This process creates an exclusive club feel — clients know their ideas are being taken seriously, not lost in generic event planning.
+-✨ Clients feel valued and exclusive, knowing their ideas are prioritized over generic event templates.
 
 ## 🛠 Team Workflow
 
-1. Instead of juggling Instagram DMs, emails, and texts, the team manages all inquiries through a central dashboard.
+-⚡ Manage all inquiries through a central dashboard instead of scattered emails/DMs.
 
-2. Inquiry forms automatically sync to the dashboard, where the team can filter, accept, or reject clients.
+-⚡ Inquiry forms sync automatically, allowing quick accept/reject decisions.
 
-3. With one click, the system generates AI-written draft emails (acceptance or rejection).
+-⚡ One-click triggers AI-generated draft emails (acceptance or rejection), including access codes when relevant.
 
-      . Drafts include custom access codes.
+-⚡ Drafts are saved and editable in the dashboard until approved and sent.
 
-      . Drafts are parked in the dashboard until reviewed, personalized, and approved for sending.
+-⚡ Client statuses (Pending, Accepted, Rejected, Booked) update live, keeping the team aligned.
 
-      . All drafts remain saved and editable until finalized.
-
-4. Rejection emails follow the same workflow, ensuring consistency.
-
-5. Client statuses (Pending, Accepted, Rejected, Booked) are tracked live in the dashboard.
-
-6. Once a client books, their status updates to “Booked,” and the dashboard logs their unique Zoom link and appointment time.
+-⚡ Booked clients’ Zoom links and appointment times are automatically logged in the dashboard.
 
 ➡️ This system reduces manual back-and-forth by up to 80% while still delivering a luxury, client-first experience.
 
@@ -76,12 +62,13 @@ Unlike generic booking platforms, Chai & Co was built to streamline the booking 
 - Axios – HTTP client
 
 
-## 🏗️ Architecture
-The platform follows a RESTful API architecture with:
-      . React Frontend: Responsive client-facing interface and admin dashboard
-      . Express Backend: Robust API handling business logic and integrations
-      . MongoDB Database: Scalable data storage for inquiries, users, and bookings
-      . Third-party Integrations: Seamless connections with email and video services
+## 🏗️ Architecture  
+The platform follows a RESTful API architecture with:  
+- **React Frontend**: Responsive client interface + admin dashboard  
+- **Express Backend**: Handles business logic & integrations  
+- **MongoDB Database**: Stores inquiries, users, and bookings  
+- **Third-party Integrations**: Email + video services  
+
 
 ## 🔧 Installation & Setup
 ```bash
