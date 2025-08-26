@@ -23,7 +23,7 @@ This project is a full-stack event inquiry and booking system designed to stream
 
 Unlike generic booking platforms, Chai & Co was built to streamline the booking process for both clients and the team, while preserving a personalized, high-end experience.
 
-##👥 Client Experience
+## 👥 Client Experience
 
 1. Clients browse the company’s past work and submit a short inquiry form (name, contact, guest size, event details).
 
@@ -84,40 +84,50 @@ The platform follows a RESTful API architecture with:
       . Third-party Integrations: Seamless connections with email and video services
 
 ## 🔧 Installation & Setup
- Clone the repository
+```bash
+# 1) Clone the repository
 git clone https://github.com/your-username/Chai-Co-AI-Powered-Event-Booking-Management-Platform.git
 cd Chai-Co-AI-Powered-Event-Booking-Management-Platform
 
- Install dependencies
+# 2) Install dependencies
 npm install
 
- Set up environment variables
+# 3) Set up environment variables
 cp .env.example .env
  Configure your API keys and database URI
 
- Start development servers
+# 4)  Start development servers
 npm run dev  # Frontend (Vite)
 npm run server  # Backend (Node.js)
+```
 
-
-##📁 Environment Variables
+## 📁 Environment Variables
 Create a .env file with:
-
+```bash
 env
 MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-OPENAI_API_KEY=your_openai_api_key
-ZOOM_CLIENT_ID=your_zoom_client_id
-ZOOM_CLIENT_SECRET=your_zoom_client_secret
-ZOOM_ACCOUNT_ID=your_zoom_account_id
-SENDGRID_API_KEY=your_sendgrid_api_key
-TEAM_EMAILS=team@example.com
-PORT=3000
 
-##📄 License
+JWT_SECRET=your_jwt_secret_key
+
+OPENAI_API_KEY=your_openai_api_key
+
+ZOOM_CLIENT_ID=your_zoom_client_id
+
+ZOOM_CLIENT_SECRET=your_zoom_client_secret
+
+ZOOM_ACCOUNT_ID=your_zoom_account_id
+
+SENDGRID_API_KEY=your_sendgrid_api_key
+
+TEAM_EMAILS=team@example.com
+
+PORT=3000
+```
+
+## 📄 License
 This project is proprietary and maintained by Chai & Co.
 
-##🏆 Acknowledgments
+## 🏆 Acknowledgments
 OpenAI for powerful language model capabilities
 
 Zoom for seamless video meeting integration
