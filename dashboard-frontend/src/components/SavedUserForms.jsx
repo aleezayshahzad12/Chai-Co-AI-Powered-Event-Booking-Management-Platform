@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { FaCheck, FaTimes, FaEnvelope } from 'react-icons/fa';
-import DashPortal from './DashPortal'; 
+import DashPortal from './DashPortal';
 import FormDetailModal from "./FormDetailModal";
 import EmailReviewModal from "./EmailReviewModal";
 
 const SavedUserForms = ({ setchosenForms, setClicked }) => {
-    const [inquiryForms, setInquiryForms] = useState([]); 
+    const [inquiryForms, setInquiryForms] = useState([]);
     const [chosing, setChosing] = useState(true);
     const [selectedForm, setSelectedForm] = useState(null);
     const [showFormModal, setShowFormModal] = useState(false);
@@ -14,8 +14,8 @@ const SavedUserForms = ({ setchosenForms, setClicked }) => {
 
     const fetchInquiryForms = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/userForms');
-            
+            const response = await fetch('https://chainco-backend.onrender.com/api/userForms');
+
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -38,39 +38,39 @@ const SavedUserForms = ({ setchosenForms, setClicked }) => {
 
     useEffect(() => {
         let intervalId;
-        
+
         fetchInquiryForms();
         intervalId = setInterval(fetchInquiryForms, 30000); // 30 seconds
-        
+
         return () => {
             if (intervalId) clearInterval(intervalId);
         };
-    }, []); 
+    }, []);
 
     const checkingStatus = async (userFormId, responseStatus) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/forms/${userFormId}`, { 
-                method: 'PUT', 
-                headers: {'Content-Type': 'application/json'}, 
+            const response = await fetch(`https://chainco-backend.onrender.com/api/forms/${userFormId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: responseStatus })
             });
-            
+
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            
+
             const updatedForm = await response.json();
-            
-            setInquiryForms(prevForms => 
+
+            setInquiryForms(prevForms =>
                 prevForms.map(form => {
-                  if (form._id === userFormId) {
-                    return updatedForm;
-                  } else {
-                    return form;
-                  }
+                    if (form._id === userFormId) {
+                        return updatedForm;
+                    } else {
+                        return form;
+                    }
                 })
-              );
+            );
 
             if (responseStatus === 'approved' || responseStatus === 'rejected') {
-                setchosenForms(updatedForm); 
+                setchosenForms(updatedForm);
                 setClicked('email-review-await');
                 setSelectedForm(updatedForm);
                 setShowEmailModal(true);
@@ -83,30 +83,30 @@ const SavedUserForms = ({ setchosenForms, setClicked }) => {
 
     const handleSendEmail = async (formId, draftIndex) => {
         try {
-          const response = await fetch(`http://localhost:3000/api/forms/${formId}/send-email`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ draftIndex })
-          });
-          
-          if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || `HTTP error! Status: ${response.status}`);
-          }
-          
-          // Refresh the forms list after successful send
-          await fetchInquiryForms();
-          setShowEmailModal(false);
+            const response = await fetch(`https://chainco-backend.onrender.com/api/forms/${formId}/send-email`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ draftIndex })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || `HTTP error! Status: ${response.status}`);
+            }
+
+            // Refresh the forms list after successful send
+            await fetchInquiryForms();
+            setShowEmailModal(false);
         } catch (error) {
-          console.error('Error sending email:', error);
-          setError(error.message);
-          alert(`Failed to send email: ${error.message}`);
+            console.error('Error sending email:', error);
+            setError(error.message);
+            alert(`Failed to send email: ${error.message}`);
         }
-      }
-      const handleRefresh = () => {
+    }
+    const handleRefresh = () => {
         fetchInquiryForms();
-      };
-      
+    };
+
     return (
         <>
             <DashPortal
@@ -118,16 +118,16 @@ const SavedUserForms = ({ setchosenForms, setClicked }) => {
                 setShowEmailModal={setShowEmailModal}
                 onRefresh={handleRefresh}
             />
-            
+
             {showFormModal && selectedForm && (
-                <FormDetailModal 
+                <FormDetailModal
                     selectedForm={selectedForm}
                     onClose={() => setShowFormModal(false)}
                 />
             )}
-            
+
             {showEmailModal && selectedForm && (
-                <EmailReviewModal 
+                <EmailReviewModal
                     selectedForm={selectedForm}
                     onSend={(draftIndex) => handleSendEmail(selectedForm._id, draftIndex)}
                     onClose={() => setShowEmailModal(false)}
