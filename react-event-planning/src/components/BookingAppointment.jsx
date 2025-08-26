@@ -17,14 +17,14 @@ const BookingAppointment = ({ accessCode }) => {
 
     try {
       if (!date) throw new Error("Invalid date selected");
-  
+
       // Get the weekday for the selected date
-      const weekday = date.toLocaleDateString("en-US", { 
-        weekday: "long", 
-        timeZone: "America/New_York" 
+      const weekday = date.toLocaleDateString("en-US", {
+        weekday: "long",
+        timeZone: "America/New_York"
       });
-  
-      const response = await fetch("http://localhost:3000/api/book-appointment", {
+
+      const response = await fetch("https://chainco-backend.onrender.com/api/book-appointment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
