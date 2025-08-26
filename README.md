@@ -61,14 +61,13 @@
 
 
 
-
-  ## 🔌 APIs & Services
+ ## 🔌 APIs & Services
 - **OpenAI API:** AI-powered email generation  
 - **Zoom API:** Meeting creation/management  
 - **SendGrid / Nodemailer:** Email delivery
 
 
-  ## 🛠 Development Tools
+## 🛠 Development Tools
 - **dotenv:** Environment variable management  
 - **CORS:** Cross-origin resource sharing  
 - **Axios:** HTTP client
