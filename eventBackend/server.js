@@ -1,8 +1,8 @@
 
 const path = require('path');
-require('dotenv').config({ 
+require('dotenv').config({
   path: path.resolve(__dirname, '.env'),
-  debug: true 
+  debug: true
 });
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -29,7 +29,7 @@ process.on('uncaughtException', (error) => {
 });
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  origin: true,
   credentials: true
 }));
 app.use(express.json());
@@ -38,8 +38,8 @@ mongoose.connect(mongoURI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
-  
-  //the access codes are generated randomly and then accessed to the user in the db and will be triggered once the acceptance if hit and ai email triggers. 
+
+//the access codes are generated randomly and then accessed to the user in the db and will be triggered once the acceptance if hit and ai email triggers. 
 const generatingCode = () => Math.floor(10000 + Math.random() * 90000).toString();
 
 const employeeSchema = new mongoose.Schema({
@@ -68,24 +68,24 @@ function generateConsistentEmployeeId(name) {
     hash = ((hash << 5) - hash) + name.charCodeAt(i);
     hash = hash & hash;
   }
-  
+
   const consistentNumber = Math.abs(hash % 9000) + 1000;
   return firstTwo + consistentNumber;
 }
 
 const predefinedEmployeeData = [
-  { 
-    email: "iqra.shahzad87@gmail.com", 
+  {
+    email: "iqra.shahzad87@gmail.com",
     name: "Iqra",
     position: "Manager"
   },
-  { 
-    email: "9217502@gmail.com", 
+  {
+    email: "9217502@gmail.com",
     name: "Amna",
     position: "Manager"
   },
-  { 
-    email: "Aleezay.shahzad12@gmail.com", 
+  {
+    email: "Aleezay.shahzad12@gmail.com",
     name: "Aleezay",
     position: "Manager"
   },
@@ -94,14 +94,14 @@ const predefinedEmployeeData = [
 async function initializeEmployees() {
   try {
     const employees = [];
-    
+
     for (let i = 0; i < predefinedEmployeeData.length; i++) {
       const empData = predefinedEmployeeData[i];
-      
+
       const employeeId = generateConsistentEmployeeId(empData.name);
-      
+
       const employee = await Employee.findOne({ email: empData.email });
-      
+
       if (!employee) {
         const newEmployee = new Employee({
           employeeId,
@@ -139,21 +139,21 @@ async function initializeEmployees() {
 let predefinedEmployees = [];
 
 mongoose.connect(mongoURI)
-  .then(async function() {
+  .then(async function () {
     console.log('MongoDB connected');
     predefinedEmployees = await initializeEmployees();
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.log(err);
   });
 
 async function createZoomLinks(meetingTopic) {
   try {
     const authString = Buffer.from(`${process.env.ZOOM_CLIENT_ID}:${process.env.ZOOM_CLIENT_SECRET}`).toString('base64');
-    
+
     const response = await axios.post(
       'https://zoom.us/oauth/token',
-      qs.stringify({ 
+      qs.stringify({
         grant_type: 'account_credentials',
         account_id: process.env.ZOOM_ACCOUNT_ID
       }),
@@ -164,9 +164,9 @@ async function createZoomLinks(meetingTopic) {
         }
       }
     );
-    
+
     const accessToken = response.data.access_token;
-    
+
     const meetingResponse = await axios.post(
       'https://api.zoom.us/v2/users/me/meetings',
       {
@@ -192,7 +192,7 @@ async function createZoomLinks(meetingTopic) {
         }
       }
     );
-    
+
     return meetingResponse.data.join_url;
   } catch (error) {
     console.error('Zoom meeting creation failed:', error.response?.data || error.message);
@@ -260,7 +260,7 @@ app.put('/api/forms/:id', async (req, res) => {
         console.log("draft made:", draft);
 
         form.emailDrafts = form.emailDrafts || [];
-        
+
         const checkingExist = (status) => {
           if (status === 'approved') {
             return 'accepted';
@@ -309,7 +309,7 @@ app.put('/api/forms/:id', async (req, res) => {
 
   } catch (error) {
     console.error("was not accepted", error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'update failed',
       details: error.message
     });
@@ -320,14 +320,14 @@ app.put('/api/forms/:id/update-draft', async (req, res) => {
   try {
     const { draftIndex, updates } = req.body;
     const form = await userForm.findById(req.params.id);
-    
-    if (!form){
-       return res.status(404).json({ error: 'form not found' });
+
+    if (!form) {
+      return res.status(404).json({ error: 'form not found' });
     }
     if (!form.emailDrafts || !form.emailDrafts[draftIndex]) {
       return res.status(400).json({ error: 'invalid draft' });
     }
-//changes were only made to the provided format
+    //changes were only made to the provided format
     if (updates.subject !== undefined) {
       form.emailDrafts[draftIndex].subject = updates.subject;
     }
@@ -337,7 +337,7 @@ app.put('/api/forms/:id/update-draft', async (req, res) => {
     if (updates.requiresReview !== undefined) {
       form.emailDrafts[draftIndex].requiresReview = updates.requiresReview;
     }
-    
+
     form.markModified('emailDrafts'); // This tells mongoose that the array was modified
 
     await form.save();
@@ -355,31 +355,31 @@ app.get('/api/validate-code/:code', async (req, res) => {
     const code = req.params.code.trim();
     if (code === HARDCODED_ACCESS_CODE) return res.json({ valid: true, debug: 'Used hardcoded test code' });
 
-    const form = await userForm.findOne({ 
-      accessCode: code, 
-      codeExpixing: { $gt: new Date() } 
+    const form = await userForm.findOne({
+      accessCode: code,
+      codeExpixing: { $gt: new Date() }
     });
-    
+
     let response;
     if (form) { //this checks if the code was used to book, if yes then the code must be invalid. 
       if (form.status === 'booked') {
-        response = { 
-          valid: false, 
-          debug: 'access code already used' 
+        response = {
+          valid: false,
+          debug: 'access code already used'
         };
       } else {
-        response = { 
-          valid: true, 
-          debug: 'booking not made' 
+        response = {
+          valid: true,
+          debug: 'booking not made'
         };
       }
     } else {
-      response = { 
-        valid: false, 
-        debug: 'invalid or expired code' 
+      response = {
+        valid: false,
+        debug: 'invalid or expired code'
       };
     }
-    
+
     res.json(response);
   } catch (error) {
     console.error(error);
@@ -422,65 +422,65 @@ app.post('/api/book-appointment', async (req, res) => {
   try {
     let { accessCode, date, time, weekday } = req.body;
     accessCode = accessCode.trim();
-    
+
     console.log('Booking request:', { accessCode, date, time, weekday });
-    
+
     if (!accessCode || !date || !time) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
     if (accessCode === HARDCODED_ACCESS_CODE) {
-      return res.json({ 
-        success: true, 
-        message: 'Booking confirmed! (Test code)', 
-        booking: { date, time, weekday: weekday || 'weekday-not-specified' } 
+      return res.json({
+        success: true,
+        message: 'Booking confirmed! (Test code)',
+        booking: { date, time, weekday: weekday || 'weekday-not-specified' }
       });
     }
-    
+
     //in order to have correct date for the booking, the system is giving date string in iso, hence the string must be parsed into est
     const appointmentDate = new Date(date);
     if (isNaN(appointmentDate.getTime())) {
       return res.status(400).json({ error: 'Invalid date format' });
     }
-    
-    const estDateString = appointmentDate.toLocaleDateString('en-CA', { 
-      timeZone: 'America/New_York' 
+
+    const estDateString = appointmentDate.toLocaleDateString('en-CA', {
+      timeZone: 'America/New_York'
     });
-    
+
     console.log('EST Date String:', estDateString);
-    
+
     //there should not be any double booking therefore, teh system must check if the user is trying to book a slot which is already booked by another cilent.
-    const existingBooking = await userForm.findOne({ 
+    const existingBooking = await userForm.findOne({
       'booking.date': estDateString,
       'booking.timeSlot': time,
       status: 'booked'
     });
-    
+
     if (existingBooking) {
       return res.status(400).json({ error: 'This time slot is already booked. Please choose another time.' });
     }
-    
-    const alreadyBooked = await userForm.findOne({ 
-      accessCode: accessCode, 
-      status: 'booked' 
+
+    const alreadyBooked = await userForm.findOne({
+      accessCode: accessCode,
+      status: 'booked'
     });
-    
+
     if (alreadyBooked) {
       return res.status(400).json({ error: 'This access code has already been used to book an appointment' });
     }
 
-    const form = await userForm.findOneAndUpdate({ 
-      accessCode: accessCode, 
+    const form = await userForm.findOneAndUpdate({
+      accessCode: accessCode,
       codeExpixing: { $gt: new Date() },
       status: { $ne: 'booked' }
-    }, { 
-      $set: { 
+    }, {
+      $set: {
         'booking.date': estDateString,
-        'booking.timeSlot': time, 
-        status: 'booked' 
-      } 
+        'booking.timeSlot': time,
+        status: 'booked'
+      }
     }, { new: true });
-    
+
     if (!form) {
       return res.status(404).json({ error: 'Invalid, expired access code, or code already used' });
     }
@@ -496,27 +496,27 @@ app.post('/api/book-appointment', async (req, res) => {
       // Continue without zoom link
     }
 
-   
-//parsing of the string in order to mathc the timezones of iso string 
+
+    //parsing of the string in order to mathc the timezones of iso string 
     const timeParts = time.match(/(\d+):(\d+) (AM|PM)/i);
     if (!timeParts) {
       throw new Error('Invalid time format');
     }
-    
+
     let hours = parseInt(timeParts[1]);
     const minutes = parseInt(timeParts[2]);
     const period = timeParts[3].toUpperCase();
-    
+
     // Convert to 24-hour format
     if (period === 'PM' && hours !== 12) {
       hours += 12;
     } else if (period === 'AM' && hours === 12) {
       hours = 0;
     }
-    
+
     const estDateTime = new Date(appointmentDate);
     estDateTime.setHours(hours, minutes, 0, 0);
-    
+
     const formattedDate = estDateTime.toLocaleString("en-US", {
       weekday: "long",
       year: "numeric",
@@ -530,27 +530,27 @@ app.post('/api/book-appointment', async (req, res) => {
 
     // Send confirmation email
     try {
-      const email = await generateEmailDraft({ 
-        name: form.name, 
-        bookedDate: formattedDate, 
-        bookedTime: time, 
-        zoomLink: zoomLink || 'Zoom link will be provided separately' 
+      const email = await generateEmailDraft({
+        name: form.name,
+        bookedDate: formattedDate,
+        bookedTime: time,
+        zoomLink: zoomLink || 'Zoom link will be provided separately'
       }, 'bookingConfirmation');
-      
+
       await sendEmail(form.email, email.subject, email.body);
     } catch (emailError) {
       console.error('Email sending failed, but booking still saved:', emailError);
     }
-      
-    res.json({ 
-      success: true, 
-      message: 'Booking confirmed!', 
-      booking: { 
-        date: estDateString, 
-        time, 
-        weekday: weekday || 'weekday-not-specified', 
-        zoomLink 
-      } 
+
+    res.json({
+      success: true,
+      message: 'Booking confirmed!',
+      booking: {
+        date: estDateString,
+        time,
+        weekday: weekday || 'weekday-not-specified',
+        zoomLink
+      }
     });
   } catch (error) {
     console.error('Booking error:', error);
@@ -563,11 +563,11 @@ app.post('/api/book-appointment', async (req, res) => {
 
 app.get('/api/bookings', async (req, res) => {
   try {
-    const bookings = await userForm.find({ 
+    const bookings = await userForm.find({
       status: 'booked',
       'booking.date': { $exists: true }
     }).select('name email booking.date booking.timeSlot booking.zoomLink');
-    
+
     res.json(bookings);
   } catch (error) {
     console.error(error);
@@ -578,12 +578,12 @@ app.get('/api/bookings', async (req, res) => {
 
 app.get('/api/team-bookings', async (req, res) => {
   try {
-    const bookings = await userForm.find({ 
+    const bookings = await userForm.find({
       status: 'booked',
       'booking.date': { $exists: true },
       'booking.zoomLink': { $exists: true, $ne: null }
     }).select('name email booking.date booking.timeSlot booking.zoomLink');
-    
+
     res.json(bookings);
   } catch (error) {
     console.error(error);
@@ -594,23 +594,23 @@ app.get('/api/team-bookings', async (req, res) => {
 app.post('/api/auth/signup', async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    
+
     // Password validation
     if (password.length < 8) {
       return res.status(400).json({ error: 'Password must be at least 8 characters long' });
     }
-    
+
     console.log('Signup attempt:', { username, email });
-    
-    const employee = await Employee.findOne({ 
+
+    const employee = await Employee.findOne({
       employeeId: username,
       email: email
     });
-    
+
     if (!employee) {
       return res.status(400).json({ error: 'Invalid employee ID or email' });
     }
-    
+
     if (employee.password) {
       return res.status(400).json({ error: 'Employee already registered' });
     }
@@ -630,7 +630,7 @@ app.post('/api/auth/signup', async (req, res) => {
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { username, password } = req.body;
-    
+
     const employee = await Employee.findOne({ employeeId: username });
     if (!employee) {
       return res.status(400).json({ error: 'Invalid credentials' });
@@ -651,10 +651,10 @@ app.post('/api/auth/login', async (req, res) => {
       { expiresIn: '24h' }
     );
 
-    res.json({ 
-      token, 
+    res.json({
+      token,
       employeeId: employee.employeeId,
-      name: employee.name 
+      name: employee.name
     });
   } catch (error) {
     console.error('Login error:', error);
@@ -665,13 +665,13 @@ app.post('/api/auth/login', async (req, res) => {
 app.post('/api/auth/recover-id', async (req, res) => {
   try {
     const { email } = req.body;
-    
+
     const employee = await Employee.findOne({ email: email });
     if (!employee) {
       return res.status(404).json({ error: 'Email not found in our system' });
     }
 
-    res.json({ 
+    res.json({
       employeeId: employee.employeeId,
       message: 'Employee ID sent successfully'
     });
