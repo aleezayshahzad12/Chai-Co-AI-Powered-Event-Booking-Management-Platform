@@ -41,14 +41,14 @@ Unlike generic booking platforms, Chai & Co is a full-stack system that streamli
 - **Central Dashboard** - Team views incoming event requests.
 
 - **Inquiry forms sync automatically** allowing quick accept/reject decisions.
-- **One-click triggers AI-generated draft emails** – Each request can be:
-    -  **Drafts are saved and editable** in the dashboard until approved and sent.
+- **One-click triggers AI-generated draft emails:**
     - **✅ Accepted** - AI drafts an email with an access code → team edits → sends.
     - **❌ Rejected** - AI drafts a polite decline email → team edits → sends.
 - **Client statuses (Pending → Accepted → Rejected → Booked) update live** keeping the team aligned.
+- **Drafts are saved and editable** in the dashboard until approved and sent.
 - **Booked clients’ Zoom links and appointment times are automatically logged** in the dashboard.
 
-➡️ This system reduces manual back-and-forth by up to 80% while still delivering a luxury, client-first experience.
+➡️ This system reduces manual back-and-forth by up to **80%** while still delivering a luxury, client-first experience.
 
 
 ## 🚀 Tech Stack
