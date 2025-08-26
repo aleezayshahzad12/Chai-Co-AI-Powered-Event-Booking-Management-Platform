@@ -1,7 +1,7 @@
 # Chai-Co-AI-Powered-Event-Booking-Management-Platform
 This project is a full-stack event inquiry and booking system designed to streamline client communication and internal team workflows. It integrates AI-generated email drafting with a human-in-the-loop review process, ensuring efficiency without losing personalization.
 
-## 🌵How it solves the Pain?** 
+## 🌵How it solves the Pain?
 
 While keeping in mind the struggles of small business owners, where companies often lack optimized systems and end up juggling dozens of client emails, scheduling conflicts, and scattered approvals across platforms like social media, messaging apps, and third-party tools, Chai & Co was built with the intention of eliminating this friction. By combining AI-assisted communication, real-time scheduling, and seamless team collaboration into one system, Chai & Co delivers faster decisions, reduces frustrating back-and-forth communication, minimizes errors, and ensures a luxury-level client experience.
 
@@ -23,10 +23,6 @@ While keeping in mind the struggles of small business owners, where companies of
 - **Client Lifecycle Tracking** – Dashboard tracks every stage: Pending → Accepted/Rejected → Booked.
 - **Employee Authentication** – Secure internal access for team members only.
 
-
-## 🌟 Project Overview
-
-Unlike generic booking platforms, Chai & Co is a full-stack system that streamline the booking process for both clients and the team, while preserving a personalized, high-end experience.
 
 ## 📌 Client Experience
 
