@@ -76,7 +76,7 @@ Unlike generic booking platforms, Chai & Co was built to streamline the booking 
 - Axios – HTTP client
 
 
-##🏗️ Architecture
+## 🏗️ Architecture
 The platform follows a RESTful API architecture with:
       . React Frontend: Responsive client-facing interface and admin dashboard
       . Express Backend: Robust API handling business logic and integrations
