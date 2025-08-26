@@ -1,6 +1,6 @@
 ## Chai-Co-AI-Powered-Event-Booking-Management-Platform
 
-Full-stack, AI-integrated event inquiry and booking system designed for luxury client experiences and optimized team workflows.
+**Full-stack, AI-integrated event inquiry and booking system** designed for luxury client experiences and optimized team workflows.
 
 **🚀 Impact:** Reduces manual back-and-forth by **80%**, prevents scheduling conflicts, and delivers a **luxury client experience**.
 
@@ -10,8 +10,8 @@ Full-stack, AI-integrated event inquiry and booking system designed for luxury c
 
 - **AI + Human-in-the-Loop:** Automatically drafts context-aware acceptance/rejection emails while letting the team personalize them.  
 - **Real-World Integrations:** Zoom API, SendGrid/Nodemailer, OpenAI API—**no mock data**.  
-- **End-to-End Workflow Management:** Tracks inquiries from Pending → Accepted/Rejected → Booked, with live updates.  
-- **Business Impact:** Reduces manual back-and-forth by **up to 80%**, prevents scheduling conflicts, and ensures a **luxury client experience**.  
+- **End-to-End Workflow Management:** Tracks inquiries from Pending → Accepted/Rejected → Booked, with live updates.
+- **Security & Access Control:** Employee authentication and custom access codes ensure secure management of bookings.   
 - **Production-Ready:** Fully deployable on Railway (backend) + Netlify (frontend).
 - **Designed and deployed** for a real event company in New York City. 
   
