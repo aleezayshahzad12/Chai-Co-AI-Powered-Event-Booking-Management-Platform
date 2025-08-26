@@ -11,7 +11,7 @@ While keeping in mind the struggles of small business owners, where companies of
 - [📌 Client Experience](#-client-experience)  
 - [🛠 Team Workflow](#-team-workflow)  
 - [🚀 Tech Stack](#-tech-stack)
-- [🚀 🏗️ Architecture ](#-architecture)  
+- [🚀 🏗️ Architecture ](#architecture)  
 - [🔧Setup](#-installation--setup)  
 
 
@@ -70,7 +70,7 @@ While keeping in mind the struggles of small business owners, where companies of
 - **Deployment:** Railway and Netlify
 
 ## 🚀 Why This Project Stands Out
-- deployed for a real event company based in New York City. 
+- Deployed for a real event company based in New York City. 
 - Human-in-the-loop AI workflows (balancing automation with personalization).
 - End-to-end lifecycle management (inquiry → decision → booking → consultation).
 - Real-world integrations (Zoom, SendGrid, OpenAI) instead of mock APIs.
