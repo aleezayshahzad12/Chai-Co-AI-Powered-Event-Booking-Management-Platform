@@ -557,8 +557,6 @@ app.post('/api/book-appointment', async (req, res) => {
     res.status(500).json({ error: 'Failed to book appointment', details: error.message });
   }
 
-  console.log('est Date String being stored:', estDateString);
-  console.log('time slot being stored:', time);
 });
 
 app.get('/api/bookings', async (req, res) => {
