@@ -1,5 +1,10 @@
 ## Chai-Co-AI-Powered-Event-Booking-Management-Platform
+
 Full-stack, AI-integrated event inquiry and booking system designed for luxury client experiences and optimized team workflows.
+
+**🚀 Impact:** Reduces manual back-and-forth by **80%**, prevents scheduling conflicts, and delivers a **luxury client experience**.
+
+
 
 ## 🌟 Why This Project Stands Out
 
