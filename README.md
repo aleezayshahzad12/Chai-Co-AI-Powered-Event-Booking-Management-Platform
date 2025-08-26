@@ -1,14 +1,23 @@
 # Chai-Co-AI-Powered-Event-Booking-Management-Platform
 This project is a full-stack event inquiry and booking system designed to streamline client communication and internal team workflows. It integrates AI-generated email drafting with a human-in-the-loop review process, ensuring efficiency without losing personalization.
 
+## 📑 Table of Contents
+- [Key Features](#-key-features)  
+- [Project Overview](#-project-overview)  
+- [Client Experience](#-client-experience)  
+- [Team Workflow](#-team-workflow)  
+- [Tech Stack](#-tech-stack)  
+- [Setup](#-installation--setup)  
+
+
 ## 📋 Key Features
 
-- **✨ AI-Powered Email Drafting – Generates context-aware acceptance/rejection emails, parked in the dashboard for review and personalization.
-- **✨ Custom Access Codes – Secure, one-time codes unlock the scheduling modal for consultations.
-- **✨ Real-Time Scheduling – Clients book based on shared availability, preventing double-booking.
-- **✨ Automated Zoom Integration – Confirmation emails include unique Zoom links for consultations.
-- **✨ Client Lifecycle Tracking – Dashboard tracks every stage: Pending → Accepted/Rejected → Booked.
-- **✨ Employee Authentication – Secure internal access for team members only.
+- **AI-Powered Email Drafting – Generates context-aware acceptance/rejection emails, parked in the dashboard for review and personalization.
+- **Custom Access Codes – Secure, one-time codes unlock the scheduling modal for consultations.
+- **Real-Time Scheduling – Clients book based on shared availability, preventing double-booking.
+- **Automated Zoom Integration – Confirmation emails include unique Zoom links for consultations.
+- **Client Lifecycle Tracking – Dashboard tracks every stage: Pending → Accepted/Rejected → Booked.
+- **Employee Authentication – Secure internal access for team members only.
 
 
 ## 🌟 Project Overview
@@ -17,29 +26,29 @@ Unlike generic booking platforms, Chai & Co is a full-stack system that streamli
 
 ## 👥 Client Experience
 
-- **✨ Browse past work and submit a short inquiry form (name, contact, guest size, event details).
+- **Browse past work and submit a short inquiry form (name, contact, guest size, event details).
 
-- **✨ All further communication happens via email for simplicity.
+- **All further communication happens via email for simplicity.
 
-- **✨ Accepted clients receive a custom access code to unlock a scheduling modal, booking directly from shared availability.
+- **Accepted clients receive a custom access code to unlock a scheduling modal, booking directly from shared availability.
 
-- **✨ Booking confirmation emails include a unique Zoom link for their consultation.
+- **Booking confirmation emails include a unique Zoom link for their consultation.
 
-- **✨ Clients feel valued and exclusive, knowing their ideas are prioritized over generic event templates.
+- **Clients feel valued and exclusive, knowing their ideas are prioritized over generic event templates.
 
 ## 🛠 Team Workflow
 
-- **⚡ Manage all inquiries through a central dashboard instead of scattered emails/DMs.
+- **Manage all inquiries through a central dashboard instead of scattered emails/DMs.
 
-- **⚡ Inquiry forms sync automatically, allowing quick accept/reject decisions.
+- **Inquiry forms sync automatically, allowing quick accept/reject decisions.
 
-- **⚡ One-click triggers AI-generated draft emails (acceptance or rejection), including access codes when relevant.
+- **One-click triggers AI-generated draft emails (acceptance or rejection), including access codes when relevant.
 
-- **⚡ Drafts are saved and editable in the dashboard until approved and sent.
+- **Drafts are saved and editable in the dashboard until approved and sent.
 
-- **⚡ Client statuses (Pending, Accepted, Rejected, Booked) update live, keeping the team aligned.
+- **Client statuses (Pending, Accepted, Rejected, Booked) update live, keeping the team aligned.
 
-- **⚡ Booked clients’ Zoom links and appointment times are automatically logged in the dashboard.
+- **Booked clients’ Zoom links and appointment times are automatically logged in the dashboard.
 
 ➡️ This system reduces manual back-and-forth by up to 80% while still delivering a luxury, client-first experience.
 
