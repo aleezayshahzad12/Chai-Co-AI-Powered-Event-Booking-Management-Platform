@@ -27,7 +27,7 @@ const ConsultationForm = ({ onClose, onCompleted }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:3000/api/form", {
+      const response = await fetch("https://chainco-backend.onrender.com/api/form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
