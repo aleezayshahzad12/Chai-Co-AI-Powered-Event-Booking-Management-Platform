@@ -23,7 +23,7 @@ This project is a full-stack event inquiry and booking system designed to stream
 
 Unlike generic booking platforms, Chai & Co was built to streamline the booking process for both clients and the team, while preserving a personalized, high-end experience.
 
-👥 Client Experience
+##👥 Client Experience
 
 1. Clients browse the company’s past work and submit a short inquiry form (name, contact, guest size, event details).
 
@@ -35,7 +35,7 @@ Unlike generic booking platforms, Chai & Co was built to streamline the booking 
 
 5. This process creates an exclusive club feel — clients know their ideas are being taken seriously, not lost in generic event planning.
 
-🛠 Team Workflow
+## 🛠 Team Workflow
 
 1. Instead of juggling Instagram DMs, emails, and texts, the team manages all inquiries through a central dashboard.
 
@@ -84,20 +84,21 @@ The platform follows a RESTful API architecture with:
       . Third-party Integrations: Seamless connections with email and video services
 
 ## 🔧 Installation & Setup
-# Clone the repository
+ Clone the repository
 git clone https://github.com/your-username/Chai-Co-AI-Powered-Event-Booking-Management-Platform.git
 cd Chai-Co-AI-Powered-Event-Booking-Management-Platform
 
-# Install dependencies
+ Install dependencies
 npm install
 
-# Set up environment variables
+ Set up environment variables
 cp .env.example .env
-# Configure your API keys and database URI
+ Configure your API keys and database URI
 
-# Start development servers
+ Start development servers
 npm run dev  # Frontend (Vite)
 npm run server  # Backend (Node.js)
+
 
 ##📁 Environment Variables
 Create a .env file with:
