@@ -58,9 +58,9 @@ Unlike generic booking platforms, Chai & Co is a full-stack system that streamli
 - **Frontend:** React, Vite, Tailwind CSS
 
   ## 🔌 APIs & Services
-- OpenAI API:** AI-powered email generation  
-- Zoom API:** Meeting creation/management  
-- SendGrid / Nodemailer:** – Email delivery
+- **OpenAI API:** AI-powered email generation  
+- **Zoom API:** Meeting creation/management  
+- **SendGrid / Nodemailer:** – Email delivery
 
 
   ## 🛠 Development Tools
