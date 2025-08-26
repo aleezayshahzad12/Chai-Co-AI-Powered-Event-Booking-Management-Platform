@@ -34,7 +34,6 @@ Unlike generic booking platforms, Chai & Co is a full-stack system that streamli
 
 - **Booking confirmation emails include a unique Zoom link** for their consultation.
 
-- **Automated Zoom Links** – Each consultation generates its own Zoom link.
 
 ## 🛠 Team Workflow
 
@@ -60,7 +59,7 @@ Unlike generic booking platforms, Chai & Co is a full-stack system that streamli
   ## 🔌 APIs & Services
 - **OpenAI API:** AI-powered email generation  
 - **Zoom API:** Meeting creation/management  
-- **SendGrid / Nodemailer:** – Email delivery
+- **SendGrid / Nodemailer:** Email delivery
 
 
   ## 🛠 Development Tools
